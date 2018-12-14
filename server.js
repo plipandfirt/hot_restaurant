@@ -66,18 +66,6 @@ var waitlist = [
         phone: "765",
         email: "jay@yahoo.com",
         unique_id: "8"
-    },
-    {
-        name: "",
-        phone: "",
-        email: "",
-        unique_id: ""
-    },
-    {
-        name: "",
-        phone: "",
-        email: "",
-        unique_id: ""
     }
 ];
 
@@ -114,27 +102,15 @@ app.get("/api/waitlist", function (req, res) {
 // ===========================================================
 
 // Create new reservation - takes in JSON input
-app.post("/api/tables", function (req, res) {
+app.post("/api/reserve", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newTable = req.body;
     //    console.log(newtable);
     // We then add the json the user sent to the tables array
-    tables.push(newTable);
+    waitlist.push(newTable);
     // We then display the JSON to the users
-    res.json(newTable);
-});
-
-// Create new waitlist - takes in JSON input
-app.post("/api/waitlist", function (req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
-    var newWaitlist = req.body;
-    //    console.log(newtable);
-    // We then add the json the user sent to the tables array
-    waitlist.push(newWaitlist);
-    // We then display the JSON to the users
-    res.json(newWaitlist);
+    res.json(waitlist);
 });
 
 // Listener
@@ -142,4 +118,3 @@ app.post("/api/waitlist", function (req, res) {
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
-
