@@ -20,6 +20,7 @@
       <h3>Current Reservations and Waiting List</h3>
       <hr>
       <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make Reservation</button></a>
+      <a href="/add"><button class="btn btn-primary btn-lg"><span class="fa fa-home"></button></a>
     </div>
     <div class="row">
 
@@ -45,11 +46,11 @@
             <h3>Wait List</h3>
           </div>
           <div class="card-body">
-            <h2 id="name">Yoda</h2>
+            <h2 id="name"></h2>
             <div id="stats">
-              <h3><strong>phone:</strong> <span id="phone">Jedi Master</span></h3>
-              <h3><strong>email:</strong> <span id="email">900</span></h3>
-              <h3><strong>ID:</strong> <span id="unique-id">2000</span></h3>
+              <h3><strong>phone:</strong> <span id="phone"> </span></h3>
+              <h3><strong>email:</strong> <span id="email"></span></h3>
+              <h3><strong>ID:</strong> <span id="unique-id"></span></h3>
             </div>
           </div>
         </div>
@@ -65,7 +66,7 @@
       // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
       searchedTable = searchedTable.replace(/\s+/g, "").toLowerCase();
 
-      $.get("/api/characters/" + searchedTable, function(data) {
+      $.get("/api/tables/" + searchedTable, function(data) {
         console.log(data);
         if (data) {
           $("#stats").show();
