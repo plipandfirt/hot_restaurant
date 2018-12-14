@@ -107,14 +107,14 @@ app.get("/api/tables", function (req, res) {
 
 // Displays all waitlists
 app.get("/api/waitlist", function (req, res) {
-    return res.json(waitlists);
+    return res.json(waitlist);
 });
 
 // Routes for posts
 // ===========================================================
 
 // Create new reservation - takes in JSON input
-app.post("/api/characters", function (req, res) {
+app.post("/api/tables", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newTable = req.body;
@@ -126,7 +126,7 @@ app.post("/api/characters", function (req, res) {
 });
 
 // Create new waitlist - takes in JSON input
-app.post("/api/characters", function (req, res) {
+app.post("/api/waitlist", function (req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     var newWaitlist = req.body;
@@ -136,10 +136,6 @@ app.post("/api/characters", function (req, res) {
     // We then display the JSON to the users
     res.json(newWaitlist);
 });
-
-
-
-
 
 // Listener
 // ===========================================================
