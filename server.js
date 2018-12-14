@@ -68,16 +68,16 @@ var waitlist = [
         unique_id: "8"
     },
     {
-        name: "Kate",
-        phone: "654",
-        email: "kate@yahoo.com",
-        unique_id: "9"
+        name: "",
+        phone: "",
+        email: "",
+        unique_id: ""
     },
     {
-        name: "Bif",
-        phone: "543",
-        email: "bif@yahhho.com",
-        unique_id: "10"
+        name: "",
+        phone: "",
+        email: "",
+        unique_id: ""
     }
 ];
 
@@ -95,8 +95,8 @@ app.get("/reserve", function (req, res) {
 });
 
 // route sends user to names page
-app.get("/names", function (req, res) {
-    res.sendFile(path.join(__dirname, "names.html"));
+app.get("/tables", function (req, res) {
+    res.sendFile(path.join(__dirname, "tables.html"));
 });
 
 // Routes for getting and posting data
