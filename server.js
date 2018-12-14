@@ -81,7 +81,6 @@ var waitlist = [
     }
 ];
 
-
 // Routes for displaying HTML pages
 // ===========================================================
 // route sends user to home page
@@ -99,10 +98,44 @@ app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-// Routes for getting and posting data
+// Routes for gets
+// ===========================================================
+// Displays all tables
+app.get("/api/tables", function (req, res) {
+    return res.json(tables);
+});
+
+// Displays all waitlists
+app.get("/api/waitlist", function (req, res) {
+    return res.json(waitlists);
+});
+
+// Routes for posts
 // ===========================================================
 
+// Create new reservation - takes in JSON input
+app.post("/api/characters", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var newTable = req.body;
+    //    console.log(newtable);
+    // We then add the json the user sent to the tables array
+    tables.push(newTable);
+    // We then display the JSON to the users
+    res.json(newTable);
+});
 
+// Create new waitlist - takes in JSON input
+app.post("/api/characters", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var newWaitlist = req.body;
+    //    console.log(newtable);
+    // We then add the json the user sent to the tables array
+    waitlist.push(newWaitlist);
+    // We then display the JSON to the users
+    res.json(newWaitlist);
+});
 
 
 
